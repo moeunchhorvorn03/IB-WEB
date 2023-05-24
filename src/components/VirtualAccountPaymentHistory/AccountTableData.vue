@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
-    props: ['VirtualAccountNo','ParentAccountNo','PaymentName','CustomerRefNo','CustomerDescription','PaymentType','Currency','PaymentStatus','id','']
+    props: ['VirtualAccountNo','ParentAccountNo','PaymentName','CustomerRefNo','CustomerDescription','PaymentType','Currency','PaymentStatus','id']
 })
 </script>
 
