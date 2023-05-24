@@ -71,8 +71,7 @@ export default defineComponent({
     align-items: center;
     border: 1px solid gray;
     padding: 10px;
-    width: 97.5vw;
-    margin-left: -14px;
+    width: 95vw;
     font-size: small;
     height: .5rem;
     

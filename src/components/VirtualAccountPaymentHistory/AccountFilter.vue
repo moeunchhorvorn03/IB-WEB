@@ -57,6 +57,8 @@
                 </div>
                 <button class="search"><span class="material-symbols-outlined icon">search</span>Search</button>
             </form>
+            <br>
+            <button>Refresh</button>
     </section>
 </template>
   

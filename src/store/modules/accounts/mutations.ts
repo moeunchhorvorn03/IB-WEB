@@ -1,5 +1,5 @@
 export default {
-    SET_ACCOUNTS (state: any, data: any) {
+    SET_ACCOUNTS (state: any, data: object) {
         state.accounts = data
     },
     filterByVAN (state: any, search: string) {
