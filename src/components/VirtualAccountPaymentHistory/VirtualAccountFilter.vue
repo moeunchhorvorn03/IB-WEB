@@ -38,7 +38,7 @@
             </div>
             <br>
             <p>Search by</p>
-            <form @submit.prevent="$emit('submit-search')" class="searchby">
+            <form @submit.prevent="$emit('submit-search',searchBy, searchInput)" class="searchby">
                 <div>
                     <select name="" id="" v-model="searchBy">
                         <option disabled value="">Select</option>
@@ -65,7 +65,16 @@
 import { defineComponent } from 'vue'
 export default defineComponent({
     name: 'Filter',
-    props: ['searchInput','searchBy','date','ParentAccountNumber','virtualAccountNumber','']
+    props: ['virtualAccountNumber','ParentAccountNumber'],
+    data() {
+        return {
+            searchBy: '',
+            searchInput: '',
+            date: new Date(),
+            virtualAccountNo: '',
+            ParentAccountNumber: ''
+        }
+    }
 })
 </script>
 

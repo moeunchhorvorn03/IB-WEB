@@ -1,7 +1,7 @@
 <template>
     <div>
         <VirtualAccountFilter 
-        @submit-search="filteredaccounts()"
+        @submit-search="filteredaccounts"
         @input-change="filback"
         />
     <section>
@@ -40,7 +40,6 @@
             {{ items }} 
         </div>
     </section>
-        <VirtualAccountFilter />
     </div>
 </template>
 
@@ -52,17 +51,7 @@ export default defineComponent ({
     components: {
         VirtualAccountFilter
     },
-    data () {
-        return {
-            activeClass: 'activeClass',
-            virtualAccountNumber: '',
-            ParentAccountNumber: '',
-            date: new Date() as Date,
-            period: null,
-            searchBy: '',
-            searchInput: ''
-        }
-    },
+    emits: ['submit-search','input-change'],
     computed: {
         items (): string {
             if(this.accounts.length < 2) {
@@ -84,7 +73,7 @@ export default defineComponent ({
             this.$router.push('/home/VirtualAccountPaymentHistory/'+ accountId)
         },
         // Modify function filteredaccounts
-        filteredaccounts () {
+        filteredaccounts (searchBy: string, searchInput: string) {
             const dataSearch :any = {
                'Virtual Account No': 'accounts/filterVAN' ,
                 'Payment Name':'accounts/filterPN',
@@ -97,8 +86,8 @@ export default defineComponent ({
 
             }
             for (let key in dataSearch) {
-                if(this.searchBy === key){ 
-                    this.$store.dispatch(dataSearch[key], this.searchInput)
+                if(searchBy === key){ 
+                    this.$store.dispatch(dataSearch[key], searchInput)
                 }
             }
 
