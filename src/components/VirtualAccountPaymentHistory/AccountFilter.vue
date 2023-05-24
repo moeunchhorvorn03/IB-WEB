@@ -79,6 +79,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.section1 {
+    font-size: 20px;
+}
 .guide {
     display: flex;
     align-items: center;

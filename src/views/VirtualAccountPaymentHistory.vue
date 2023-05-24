@@ -1,65 +1,23 @@
 <template>
     <div>
-        <VirtualAccountFilter 
-        @submit-search="filteredaccounts"
-        @input-change="filback"
-        />
-    <section>
-        <table>
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Virtual Account No</th>
-                    <th>Parent Account No</th>
-                    <th>Payment Name</th>
-                    <th>Customer Ref No</th>
-                    <th>Customer Description</th>
-                    <th>Payment Type</th>
-                    <th>Currency</th>
-                    <th>Payment Status</th>
-            </tr>
-            </thead>
-            <tbody>
-                    <tr class="link" v-for="(account) in accounts" :key="account.id" @click="link(account.id)">
-                            <td>{{ account.id }}</td>
-                            <td>{{ account.VirtualAccountNo }}</td>
-                            <td>{{ account.ParentAccountNo }}</td>
-                            <td>{{ account.PaymentName }}</td>
-                            <td>{{ account.CustomerRefNo }}</td>
-                            <td>{{ account.CustomerDescription }}</td>
-                            <td>{{ account.PaymentType }}</td>
-                            <td>{{ account.Currency }}</td>
-                            <td>{{ account.PaymentStatus }}</td>
-                    </tr>
-            </tbody>
-            <div v-if="!accounts.length">
-                <h1>No data</h1>
-            </div>
-        </table>
-        <div class="items">
-            {{ items }} 
-        </div>
-    </section>
+        <AccountFilter @submit-search="filteredaccounts" @input-change="filback" />
+        <AccountTable :accounts="accounts" />
     </div>
 </template>
 
 <script lang="ts">
-import VirtualAccountFilter from '@/components/VirtualAccountPaymentHistory/VirtualAccountFilter.vue';
+import AccountTable from '@/components/VirtualAccountPaymentHistory/AccountTable.vue'
+import AccountFilter from '@/components/VirtualAccountPaymentHistory/AccountFilter.vue';
+import accounts from '@/store/modules/accounts';
 import { defineComponent } from 'vue';
 export default defineComponent ({
     name: 'VirtualAccountPaymentHistory',
     components: {
-        VirtualAccountFilter
+        AccountFilter,
+        AccountTable
     },
     emits: ['submit-search','input-change'],
     computed: {
-        items (): string {
-            if(this.accounts.length < 2) {
-                return this.accounts.length + ' item'
-            }else {
-                return this.accounts.length + ' items'
-            }
-        },
         accounts () {
             return this.$store.state.accounts.accounts
         },
@@ -69,9 +27,6 @@ export default defineComponent ({
         // },
     },
     methods: {
-        link (accountId: Number) {
-            this.$router.push('/home/VirtualAccountPaymentHistory/'+ accountId)
-        },
         // Modify function filteredaccounts
         filteredaccounts (searchBy: string, searchInput: string) {
             const dataSearch :any = {
@@ -135,41 +90,5 @@ export default defineComponent ({
 </script>
 
 <style scoped>
-
-
-.link > td:hover {
-    cursor: pointer;
-}
-
-
-
-.items {
-    display: flex;
-    align-items: center;
-    border: 1px solid gray;
-    padding: 10px;
-    width: 97.5vw;
-    margin-left: -14px;
-    font-size: small;
-    height: .5rem;
-    
-}
-thead {
-    background-color: rgb(226, 226, 226);
-}
-table {
-    margin-top: 90px;
-    width: 100%;
-    height: 100px;
-}
-
-
-table, td, th {
-    border: 1px solid rgb(156, 156, 156);
-    border-collapse: collapse;
-    padding: 3px;
-    font-size: 15.3px;
-    text-align: center;
-}
 
 </style>
