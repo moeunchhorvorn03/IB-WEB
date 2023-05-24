@@ -123,10 +123,10 @@ export default defineComponent({
         accounts () {
             return this.$store.state.accounts.accounts
         },
-        getDate () {
-            let date_String: string = this.date.getFullYear() + "/" + (this.date.getMonth() + 1) + "/" + this.date.getDate()
-            return date_String
-        },
+        // getDate () {
+        //     let date_String: string = this.date.getFullYear() + "/" + (this.date.getMonth() + 1) + "/" + this.date.getDate()
+        //     return date_String
+        // },
     },
     methods: {
         link (accountId: Number) {

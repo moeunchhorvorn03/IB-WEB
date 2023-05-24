@@ -1,5 +1,5 @@
 interface account {
-    id: Number,
+    id: number,
     VirtualAccountNo: string,
     ParentAccountNo: string,
     PaymentName: string,

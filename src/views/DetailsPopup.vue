@@ -25,11 +25,7 @@ import type account from '@/interface/account';
 import { defineComponent } from 'vue';
 export default defineComponent ({
     name: "DetailsPopup",
-    props: {
-        id: {
-            type: Number
-        }
-    },
+    props: ['id'],
     computed: {
         account() {
             const accounts = this.$store.state["accounts"]["accounts"];
