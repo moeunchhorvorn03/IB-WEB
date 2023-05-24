@@ -22,7 +22,7 @@ td {
     border: 1px solid rgb(156, 156, 156);
     border-collapse: collapse;
     padding: 3px;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
 }
 td:hover {
