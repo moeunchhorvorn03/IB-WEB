@@ -108,7 +108,7 @@ th {
 }
 
 table, td, th {
-    border: 1px solid black;
+    border: 1px solid rgb(168, 168, 168);
     border-collapse: collapse;
     padding: 3px;
     font-size: 15.3px;

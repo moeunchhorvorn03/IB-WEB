@@ -12,7 +12,7 @@
             <div class="AccNum">
                 <div class="select1">
                     <p>Virtual Account Number</p>
-                    <select name="virtual-account-number" id="virtual-account-number" v-model="virtualAccountNumber">
+                    <select name="virtual-account-number" id="virtual-account-number" v-model="VirtualAccountNumber">
                         <option disabled value="">All</option>
                     </select>
                 </div>
@@ -58,7 +58,7 @@
                 <button class="search"><span class="material-symbols-outlined icon">search</span>Search</button>
             </form>
             <br>
-            <button>Refresh</button>
+            <button @click="refresh">Refresh</button>
     </section>
 </template>
   
@@ -67,14 +67,18 @@
 import { defineComponent } from 'vue'
 export default defineComponent({
     name: 'Filter',
-    props: ['virtualAccountNumber','ParentAccountNumber'],
     data() {
         return {
             searchBy: '',
             searchInput: '',
             date: new Date(),
-            virtualAccountNo: '',
+            VirtualAccountNumber: '',
             ParentAccountNumber: ''
+        }
+    },
+    methods: {
+        refresh () {
+            this.$store.dispatch('accounts/getAccounts')
         }
     }
 })
