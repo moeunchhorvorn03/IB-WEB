@@ -201,6 +201,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.guide {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
 .link > td:hover {
     cursor: pointer;
 }
