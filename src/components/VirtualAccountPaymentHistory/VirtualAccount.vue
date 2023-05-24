@@ -132,13 +132,7 @@ export default defineComponent({
         link (accountId: Number) {
             this.$router.push('/home/VirtualAccountPaymentHistory/'+ accountId)
         },
-//         Parent Account No
-// Payment Name
-// Customer Ref No
-// Customer Description
-// Payment Type
-// Currency
-// Payment Status
+        // Modify function filteredaccounts
         filteredaccounts () {
             const dataSearch :any = {
                'Virtual Account No': 'accounts/filterVAN' ,
@@ -157,7 +151,7 @@ export default defineComponent({
                 }
             }
 
-
+            // Original statements
 
             // if(this.searchBy === 'Virtual Account No') {
             //     this.$store.dispatch('accounts/filterVAN', this.searchInput)
