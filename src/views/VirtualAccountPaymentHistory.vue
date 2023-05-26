@@ -80,7 +80,7 @@ export default defineComponent ({
         }
     },
     watch: {
-        searchInput(value) {
+        searchInput(value: any) {
             if(value.searchInput === '') {
                 this.filback()
             }

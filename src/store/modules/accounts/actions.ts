@@ -1,34 +1,39 @@
 import axios from "axios"
 
 export default {
-    async getAccounts ({ commit }: any) {
+    async getAccounts ( context: any ) {
+        try {
             await axios.get('http://localhost:4000/accounts')
                 .then((response) => {
-                    commit('SET_ACCOUNTS', response.data)
+                    context.commit('SET_ACCOUNTS', response.data)
                 })
+            } catch (error) {
+                console.error(error)
+            }
         },
-    filterVAN ({commit}: any, search: any) {
-        commit('filterByVAN', search)
+
+    filterVAN ( context: any, search: string ) {
+        context.commit('filterByVAN', search)
     },
-    filterPAN ({commit}: any, search: any) {
-        commit('filterByPAN', search)
+    filterPAN ( context: any, search: string ) {
+        context.commit('filterByPAN', search)
     },
-    filterPN ({commit}: any, search: any) {
-        commit('filterByPN', search)
+    filterPN ( context: any, search: string ) {
+        context.commit('filterByPN', search)
     },
-    filterCRN ({commit}: any, search: any) {
-        commit('filterByCRN', search)
+    filterCRN ( context: any, search: string ) {
+        context.commit('filterByCRN', search)
     },
-    filterCD ({commit}: any, search: any) {
-        commit('filterByCD', search)
+    filterCD ( context: any, search: string ) {
+        context.commit('filterByCD', search)
     },
-    filterPT ({commit}: any, search: any) {
-        commit('filterByPT', search)
+    filterPT ( context: any, search: string ) {
+        context.commit('filterByPT', search)
     },
-    filterPS ({commit}: any, search: any) {
-        commit('filterByPS', search)
+    filterPS ( context: any, search: string ) {
+        context.commit('filterByPS', search)
     },
-    filterC ({commit}: any, search: any) {
-        commit('filterByC', search)
+    filterC ( context: any, search: string ) {
+        context.commit('filterByC', search)
     }
 }

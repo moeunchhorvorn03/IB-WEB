@@ -27,7 +27,7 @@
             <p>Period</p>
             <div class="period">
                 <div>
-                    <input type="date" name="" id="" v-model="date">
+                    <input type="date" name="" id="" v-model="firstDate">
                 </div>
                 <div class="box">
                     <input type="button" name="period" id="period" value="1 Week">
@@ -71,7 +71,8 @@ export default defineComponent({
         return {
             searchBy: '',
             searchInput: '',
-            date: new Date(),
+            firstDate: '',
+            seondDate: '',
             VirtualAccountNumber: '',
             ParentAccountNumber: ''
         }
