@@ -5,8 +5,8 @@
                 <button class="closeBtn"><span @click="close" class="material-symbols-outlined icon">close</span></button>
         </header>
         <hr>
-        <AccountDetailItems 
-        :id="account.id" 
+        <AccountDetailItems
+        :id="account.id"
         :VirtualAccountNo="account.VirtualAccountNo"
         :PaymentName="account.PaymentName"
         :CustomerRefNo="account.CustomerRefNo"
@@ -14,6 +14,14 @@
         :PaymentType="account.PaymentType"
         :Currency="account.Currency"
         :PaymentStatus="account.PaymentStatus"
+        :PaymentStartDate="account.PaymentStartDate"
+        :FirstPaymentDueDate="account.FirstPaymentDueDate"
+        :SecondPaymentDueDate="account.SecondPaymentDueDate"
+        :VirtualAccountExpiryDate="account.VirtualAccountExpiryDate"
+        :PaymentDate="account.PaymentDate"
+        :FirstPaymentDueAmount="account.FirstPaymentDueAmount"
+        :SecondPaymentDueAmount="account.SecondPaymentDueAmount"
+        :PaymentAmount="account.PaymentAmount"
         />
     </div>
 </template>

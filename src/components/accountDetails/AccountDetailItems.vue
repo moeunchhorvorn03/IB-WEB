@@ -36,19 +36,19 @@
                     <thead>
                         <tr>
                             <th>Payment Start Date</th>
-                            <td>16/05/2023</td>
+                            <td>{{ PaymentStartDate }}</td>
                         </tr>
                         <tr>
                             <th>1st Payment Due Date</th>
-                            <td>16/05/2023</td>
+                            <td>{{ FirstPaymentDueDate }}</td>
                             <th>1st Payment Due Amount</th>
-                            <td>99,999,999.00</td>
+                            <td>{{ FirstPaymentDueAmount }}</td>
                         </tr>
                         <tr>
                             <th>2nd Payment Due Date</th>
-                            <td>16/05/2023</td>
+                            <td>{{ SecondPaymentDueDate }}</td>
                             <th>2nd Payment Due Amount</th>
-                            <td>99,999,999.00</td>
+                            <td>{{ SecondPaymentDueAmount }}</td>
                         </tr>
                         <tr>
                             <th>Payment Status</th>
@@ -56,13 +56,13 @@
                         </tr>
                         <tr>
                             <th>Payment Date</th>
-                            <td>16/05/2023</td>
+                            <td>{{ PaymentDate }}</td>
                             <th>Payment Amount</th>
-                            <td>99,999,999.00</td>
+                            <td>{{ PaymentAmount }}</td>
                         </tr>
                         <tr>
                             <th>Virtual Account Expiry Date</th>
-                            <td>16/05/2023</td>
+                            <td>{{ VirtualAccountExpiryDate }}</td>
                         </tr>
                     </thead>
                 </table>
@@ -76,7 +76,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent ({
     name: 'AccountDetailItems',
-    props: ['id','VirtualAccountNo','PaymentName','CustomerRefNo','CustomerDescription','PaymentType','Currency','PaymentStatus']
+    props: ['id','VirtualAccountNo','PaymentName','CustomerRefNo','CustomerDescription','PaymentType','Currency','PaymentStatus','VirtualAccountExpiryDate','PaymentAmount','PaymentDate','SecondPaymentDueAmount','SecondPaymentDueDate','FirstPaymentDueAmount','FirstPaymentDueDate','PaymentStartDate']
 })
 </script>
 
