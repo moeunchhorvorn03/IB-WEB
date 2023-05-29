@@ -80,6 +80,7 @@ export default defineComponent({
     methods: {
         refresh () {
             this.$store.dispatch('accounts/getAccounts')
+            this.searchInput = ''
         }
     }
 })

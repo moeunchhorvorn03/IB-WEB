@@ -1,14 +1,13 @@
-import axios from "axios"
-
 export default {
     async getAccounts ( context: any ) {
         try {
-            await axios.get('http://localhost:4000/accounts')
-                .then((response) => {
-                    context.commit('SET_ACCOUNTS', response.data)
+            await fetch('http://localhost:4000/accountsf')
+                .then(response => response.json())
+                .then((accounts)=> {
+                    context.commit('SET_ACCOUNTS', accounts)
                 })
             } catch (error) {
-                console.error(error)
+                console.error('There was an error!', error)
             }
         },
 
