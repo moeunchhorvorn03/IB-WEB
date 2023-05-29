@@ -40,7 +40,7 @@ export default defineComponent ({
                 'Parent Account No': 'accounts/filterPAN'
 
             }
-            for (let key in dataSearch) {
+            for (const key in dataSearch) {
                 if(searchBy === key){ 
                     this.$store.dispatch(dataSearch[key], searchInput)
                 }

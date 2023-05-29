@@ -30,10 +30,10 @@
                     <input type="date" name="" id="" v-model="firstDate">
                 </div>
                 <div class="box">
-                    <input type="button" name="period" id="period" value="1 Week">
-                    <input type="button" name="period" id="period" value="1 month">
-                    <input type="button" name="period" id="period" value="3 months">
-                    <input type="button" name="period" id="period" value="6 months">
+                    <button for="1 Week"><input type="radio" name="period" id="1 Week" value="1 Week" v-model="period">1 Week</button>
+                    <button for="1 month"><input type="radio" name="period" id="1 month" value="1 month" v-model="period">1 month</button>
+                    <button for="3 months"><input type="radio" name="period" id="3 months" value="3 months" v-model="period">3 months</button>
+                    <button for="6 months"><input type="radio" name="period" id="6 months" value="6 months" v-model="period">6 months</button>
                 </div>
             </div>
             <br>
@@ -74,7 +74,9 @@ export default defineComponent({
             firstDate: '',
             seondDate: '',
             VirtualAccountNumber: '',
-            ParentAccountNumber: ''
+            ParentAccountNumber: '',
+            period: '1 Week',
+        
         }
     },
     methods: {
@@ -88,11 +90,43 @@ export default defineComponent({
         submit() {
             this.$emit('submit-search',this.searchBy, this.searchInput)
         }
-    }
+    },
+    
 })
 </script>
 
 <style scoped>
+.border-orange {
+    border: 2px solid rgb(224, 146, 0);
+}
+button::before {
+    background-color: white;
+    border: 1.2px solid rgb(158, 158, 158);
+}
+button::after {
+    border: 1.2px solid rgb(177, 139, 57);
+    background-color: white;
+}
+.box {
+    display: flex;
+    gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+.box > button > input{
+    clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  
+}
+.box > input {
+    background-color: white;
+}
 .section1 {
     font-size: 20px;
 }

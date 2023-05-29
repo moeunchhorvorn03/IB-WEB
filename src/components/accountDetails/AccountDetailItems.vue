@@ -1,5 +1,5 @@
 <template>
-         <div class="container">
+        <div class="container">
             <h2>Virtual Account Payment History Details</h2>
             <div class="box">
                 <!-- accounts index -->
@@ -68,7 +68,6 @@
                 </table>
             </div>
         </div>
-
 </template>
 
 <script lang="ts">
