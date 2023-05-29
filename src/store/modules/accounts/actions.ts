@@ -1,7 +1,7 @@
 export default {
     async getAccounts ( context: any ) {
         try {
-            await fetch('http://localhost:4000/accountsf')
+            await fetch('http://localhost:4000/accounts')
                 .then(response => response.json())
                 .then((accounts)=> {
                     context.commit('SET_ACCOUNTS', accounts)

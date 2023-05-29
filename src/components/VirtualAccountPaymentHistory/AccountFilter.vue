@@ -38,7 +38,7 @@
             </div>
             <br>
             <p>Search by</p>
-            <form @submit.prevent="$emit('submit-search',searchBy, searchInput)" class="searchby">
+            <form @submit.prevent="submit" class="searchby">
                 <div>
                     <select name="" id="" v-model="searchBy">
                         <option disabled value="">Select</option>
@@ -53,7 +53,7 @@
                     </select>
                 </div>
                 <div class="input">
-                    <input type="text" name="" id="" v-model="searchInput" @change="$emit('input-change')" >
+                    <input type="text" name="" id="" v-model="searchInput" @change="change" >
                 </div>
                 <button class="search"><span class="material-symbols-outlined icon">search</span>Search</button>
             </form>
@@ -81,6 +81,12 @@ export default defineComponent({
         refresh () {
             this.$store.dispatch('accounts/getAccounts')
             this.searchInput = ''
+        },
+        change () {
+            this.$emit('input-change')
+        },
+        submit() {
+            this.$emit('submit-search',this.searchBy, this.searchInput)
         }
     }
 })
