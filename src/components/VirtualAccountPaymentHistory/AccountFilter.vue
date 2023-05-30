@@ -30,10 +30,7 @@
                     <input type="date" name="" id="" v-model="firstDate">
                 </div>
                 <div class="box">
-                    <button :class=" active? 'border-orange': '' " @click="toggleButton"  for="1 Week"><input type="radio" name="period" id="1 Week" value="1 Week" v-model="period">1 Week</button>
-                    <button for="1 month"><input type="radio" name="period" id="1 month" value="1 month" v-model="period">1 month</button>
-                    <button for="3 months"><input type="radio" name="period" id="3 months" value="3 months" v-model="period">3 months</button>
-                    <button for="6 months"><input type="radio" name="period" id="6 months" value="6 months" v-model="period">6 months</button>
+                    <button v-for="tag in tags" @click="period = tag">{{ tag }}</button>
                 </div>
             </div>
             <br>
@@ -42,14 +39,7 @@
                 <div>
                     <select name="" id="" v-model="searchBy">
                         <option disabled value="">Select</option>
-                        <option value="Virtual Account No">Virtual Account No</option>
-                        <option value="Parent Account No">Parent Account No</option>
-                        <option value="Payment Name">Payment Name</option>
-                        <option value="Customer Ref No">Customer Ref No</option>
-                        <option value="Customer Description">Customer Description</option>
-                        <option value="Payment Type">Payment Type</option>
-                        <option value="Currency">Currency</option>
-                        <option value="Payment Status">Payment Status</option>
+                        <option v-for="option in options" :value="option">{{ option }}</option>
                     </select>
                 </div>
                 <div class="input">
@@ -76,7 +66,15 @@ export default defineComponent({
             VirtualAccountNumber: '',
             ParentAccountNumber: '',
             period: '1 Week',
-            active: true
+            btnColor: 'rgb(224, 146, 0)',
+        }
+    },
+    computed: {
+        tags () {
+            return ['1 Week', '1 month', '3 months', '6 months']
+        },
+        options () {
+            return ['Virtual Account No','Parent Account No','Payment Name','Customer Ref No','Customer Description','Payment Type','Currency','Payment Status']
         }
     },
     methods: {
@@ -89,11 +87,11 @@ export default defineComponent({
         },
         submit() {
             this.$emit('submit-search',this.searchBy, this.searchInput)
-        },
-        toggleButton () {
-            this.active = !this.active 
         }
     },
+    watch: {
+
+    }
     
 })
 </script>
