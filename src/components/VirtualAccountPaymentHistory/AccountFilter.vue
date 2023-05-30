@@ -30,7 +30,7 @@
                     <input type="date" name="" id="" v-model="firstDate">
                 </div>
                 <div class="box">
-                    <button v-for="tag in tags" @click="period = tag">{{ tag }}</button>
+                    <button v-for="tag in tags" :style="{'border-color': period === tag? 'rgb(224, 146, 0)': ''}" @click="toggleBtn(tag)">{{ tag }}</button>
                 </div>
             </div>
             <br>
@@ -66,7 +66,6 @@ export default defineComponent({
             VirtualAccountNumber: '',
             ParentAccountNumber: '',
             period: '1 Week',
-            btnColor: 'rgb(224, 146, 0)',
         }
     },
     computed: {
@@ -87,6 +86,10 @@ export default defineComponent({
         },
         submit() {
             this.$emit('submit-search',this.searchBy, this.searchInput)
+        },
+        toggleBtn (tag: string) {
+            this.period = tag
+            this.$emit('period-btn', this.period)
         }
     },
     watch: {
