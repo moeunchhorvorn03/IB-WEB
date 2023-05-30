@@ -15,9 +15,9 @@
             </tr>
             </thead>
             <tbody>
-                    <tr class="link" v-for="(account) in accounts" :key="account.id" @click="link(account.id)">
+                    <tr class="link" v-for="(account, index) in accounts" :key="account.id" @click="link(account.id)">
                             <AccountTableData 
-                            :id="account.id"
+                            :index="index + 1"
                             :VirtualAccountNo="account.VirtualAccountNo"
                             :ParentAccountNo="account.ParentAccountNo"
                             :PaymentName="account.PaymentName"

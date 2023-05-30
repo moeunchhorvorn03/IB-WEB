@@ -30,7 +30,7 @@
                     <input type="date" name="" id="" v-model="firstDate">
                 </div>
                 <div class="box">
-                    <button for="1 Week"><input type="radio" name="period" id="1 Week" value="1 Week" v-model="period">1 Week</button>
+                    <button :class=" active? 'border-orange': '' " @click="toggleButton"  for="1 Week"><input type="radio" name="period" id="1 Week" value="1 Week" v-model="period">1 Week</button>
                     <button for="1 month"><input type="radio" name="period" id="1 month" value="1 month" v-model="period">1 month</button>
                     <button for="3 months"><input type="radio" name="period" id="3 months" value="3 months" v-model="period">3 months</button>
                     <button for="6 months"><input type="radio" name="period" id="6 months" value="6 months" v-model="period">6 months</button>
@@ -76,7 +76,7 @@ export default defineComponent({
             VirtualAccountNumber: '',
             ParentAccountNumber: '',
             period: '1 Week',
-        
+            active: true
         }
     },
     methods: {
@@ -89,6 +89,9 @@ export default defineComponent({
         },
         submit() {
             this.$emit('submit-search',this.searchBy, this.searchInput)
+        },
+        toggleButton () {
+            this.active = !this.active 
         }
     },
     

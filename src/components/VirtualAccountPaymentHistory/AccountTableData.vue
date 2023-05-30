@@ -1,5 +1,5 @@
 <template>
-        <td>{{ id }}</td>
+        <td>{{ index }}</td>
         <td>{{ VirtualAccountNo }}</td>
         <td>{{ ParentAccountNo }}</td>
         <td>{{ PaymentName }}</td>
@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
-    props: ['VirtualAccountNo','ParentAccountNo','PaymentName','CustomerRefNo','CustomerDescription','PaymentType','Currency','PaymentStatus','id']
+    props: ['VirtualAccountNo','ParentAccountNo','PaymentName','CustomerRefNo','CustomerDescription','PaymentType','Currency','PaymentStatus','index']
 })
 </script>
 

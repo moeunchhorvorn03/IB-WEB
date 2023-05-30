@@ -3,7 +3,7 @@
             <h2>Virtual Account Payment History Details</h2>
             <div class="box">
                 <!-- accounts index -->
-                <p>No <strong>{{ id }}</strong></p>
+                <p>Customer ID <strong>{{ id }}</strong></p>
                 <!-- Virtual Account Number  -->
                 <p>Virtual Account Number   <strong>1-100-000001</strong></p>
             </div>
